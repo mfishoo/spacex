@@ -120,7 +120,7 @@ class SatSettingForm extends Component {
   }
   showSatellite = (e) => {
     e.preventDefault();
-    this.props.form.validateField((err, values) => {
+    this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.onShow(values);
       }
