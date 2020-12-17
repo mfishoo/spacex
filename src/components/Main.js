@@ -11,12 +11,14 @@ export default class Main extends Component {
     this.state = {
       satInfo: null,
       settings: null,
+      satList: null,
       isLoadingList: false,
     };
   }
 
   showNearbySatellite = (setting) => {
     this.setState({
+      isLoadingList: true,
       settings: setting,
     });
     this.fetchSatellite(setting);
@@ -53,19 +55,19 @@ export default class Main extends Component {
   };
 
   render() {
-    const { satInfo } = this.state;
+    const { satInfo, isLoadingList, settings, satList } = this.state;
     return (
       <div className='main'>
         <div className='left-side'>
           <SatSetting onShow={this.showNearbySatellite} />
           <SatelliteList
             satInfo={satInfo}
-            isLoad={this.state.isLoadingList}
+            isLoad={isLoadingList}
             onShowMap={this.showMap}
           />
         </div>
         <div className='right-side'>
-          <WorldMap />
+          <WorldMap satData={satList} observerData={settings} />
         </div>
       </div>
     );

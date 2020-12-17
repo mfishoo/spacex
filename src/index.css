@@ -5,6 +5,7 @@
 @import './styles/SatSetting.css';
 @import './styles/SatelliteList.css';
 @import './styles/Footer.css';
+@import './styles/WorldMap.css';
 
 body {
   margin: 0;
